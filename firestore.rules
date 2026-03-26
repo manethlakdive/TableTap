@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Shops - only owner can read/write
+    match /shops/{shopId} {
+      allow read, write: if request.auth != null && request.auth.uid == shopId;
+    }
+
+    // Menus - staff write, anyone read (for customers)
+    match /menus/{menuId} {
+      allow read: if true;
+      allow write: if request.auth != null && resource.data.shopId == request.auth.uid
+                   || request.auth != null && request.resource.data.shopId == request.auth.uid;
+    }
+
+    // Orders - anyone can create (customers), staff can read/update their own
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read, update: if request.auth != null && resource.data.shopId == request.auth.uid;
+    }
+
+    // QR Codes - staff write, anyone read
+    match /qrcodes/{qrId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
