@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDfaiVprO0_c3-CPVQW2A0CTWCq5U-j-Bc",
-  authDomain: "restaurant-order-system-90060.firebaseapp.com",
-  projectId: "restaurant-order-system-90060",
-  storageBucket: "restaurant-order-system-90060.firebasestorage.app",
-  messagingSenderId: "328339864038",
-  appId: "1:328339864038:web:3cd611ccd7c1cf6cbffe27"
+  apiKey: "AIzaSyALVsEEEKdKQLCe5LqRdZPn6uogPj1Y8OU",
+  authDomain: "tabletap-b8582.firebaseapp.com",
+  projectId: "tabletap-b8582",
+  storageBucket: "tabletap-b8582.firebasestorage.app",
+  messagingSenderId: "1063272095896",
+  appId: "1:1063272095896:web:602eb9419eca02b05370ed"
 };
 
 const app = initializeApp(firebaseConfig);
